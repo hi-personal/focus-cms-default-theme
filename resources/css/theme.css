@@ -161,9 +161,7 @@ p {
 }
 
 .file-links {
-    .file-links {
-        @apply my-2 py-4 px-4 inline-block border rounded;
-    }
+    @apply my-2 py-4 px-4 inline-block border rounded;
 }
 
 #twteszt-2 {

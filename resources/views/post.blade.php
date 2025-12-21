@@ -67,7 +67,7 @@
                 x-data="prevNextToggle()"
             >
                 <div
-                    class=" w-fit mx-auto !mb-6 shadow-lg py-4 px-6  grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center space-x-2 text-center text-lg cursor-pointer border rounded"
+                    class="w-fit mx-auto !mb-6 shadow-lg py-4 px-6  grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center space-x-2 text-center text-lg cursor-pointer border rounded"
                     :class="isCategoryFilter ? 'text-purple-600' : 'text-blue-900'"
                     @click="isCategoryFilter = !isCategoryFilter"
                 >
