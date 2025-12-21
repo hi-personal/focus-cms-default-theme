@@ -38,11 +38,11 @@
 
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
-        @if( $viteIsActive == false)
-            <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}">
-            <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
-        @else
+        @if( $viteIsActive == true)
             @vite($viteAssets)
+        @else
+            <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
+            <script defer src="{{ asset($theme_vite_data['js']) }}"></script>
         @endif
 
         @stack('head_scripts')

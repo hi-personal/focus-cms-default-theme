@@ -3,18 +3,22 @@
 
     if( $viteIsActive == true) {
         $viteAssets = [
-            "Themes/{$currentTheme}/public/js/theme.js",
-            "resources/css/theme-{$currentTheme}-app.css"
+            "Themes/{$currentTheme}/resources/js/theme.js",
+            "Themes/{$currentTheme}/resources/css/theme.css"
         ];
     } else {
         $themeManifestPath = public_path("themepublic/build/manifest.json");
         $manifest = json_decode(file_get_contents($themeManifestPath), true);
+
         $theme_vite_data = [
-            "js" => "themepublic/build/".$manifest["Themes/{$currentTheme}/public/js/theme.js"]['file'] ?? '',
-            "css" => "themepublic/build/".$manifest["resources/css/theme-{$currentTheme}-app.css"]['file'] ?? ''
+            "js" => "themepublic/build/".$manifest["Themes/{$currentTheme}/resources/js/theme.js"]['file'] ?? '',
+            "css" => "themepublic/build/".$manifest["Themes/{$currentTheme}/resources/css/theme.css"]['file'] ?? ''
         ];
     }
+
+    $isMinimalView = !empty($isMinimalViewFromController) ? $isMinimalViewFromController : request()->has('minimal');
 @endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
