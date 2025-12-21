@@ -276,14 +276,11 @@ p {
     @apply object-cover rounded w-full h-full;
 }
 
-.footnotes {
-    @apply my-4;
-}
 
 .footnote {
-    @apply my-2 py-0 !important;
+    @apply my-2 !py-0;
 }
 
 .footnote p {
-    @apply my-0 !important;
+    @apply !my-0;
 }
