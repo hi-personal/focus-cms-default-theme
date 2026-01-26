@@ -10,6 +10,7 @@
         :image="$headImageUrl ?? null"
         :section="$category->title ?? null"
         :tags="$tags?->pluck('title')->toArray() ?? []"
+        :isHome="$is_home"
     />
 
     <div class="">

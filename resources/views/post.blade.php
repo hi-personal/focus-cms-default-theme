@@ -3,6 +3,7 @@
     :features="$features"
 >
    <x-seo.meta
+        :post="$post"
         :title="$meta_title ?? $post->title"
         :description="$meta_description"
         :content="$post->content"
