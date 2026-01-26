@@ -8,7 +8,11 @@
         ];
     } else {
         $themeManifestPath = public_path("themepublic/build/manifest.json");
-        $manifest = json_decode(file_get_contents($themeManifestPath), true);
+        $manifest = json_decode(
+            file_get_contents($themeManifestPath),
+            true,
+            flags: JSON_THROW_ON_ERROR
+        );
 
         $theme_vite_data = [
             "js" => "themepublic/build/".$manifest["Themes/{$currentTheme}/resources/js/theme.js"]['file'] ?? '',
@@ -44,19 +48,20 @@
             <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap">
         </noscript>
 
-        {{-- Prism CSS (nem kritikus) --}}
-        <link
-            rel="preload"
-            as="style"
-            href="{{ asset('assets/prism.js/prism.css') }}"
-            onload="this.onload=null;this.rel='stylesheet'"
-        >
-        <noscript>
-            <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}">
-        </noscript>
+        {{-- Prism CSS & Prism JS --}}
+        @if(!empty($hasCodeBlocks))
+            <link
+                rel="preload"
+                as="style"
+                href="{{ asset('assets/prism.js/prism.css') }}"
+                onload="this.onload=null;this.rel='stylesheet'"
+            >
+            <noscript>
+                <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}">
+            </noscript>
 
-        {{-- Prism JS --}}
-        <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
+            <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
+        @endif
 
         {{-- VITE / FALLBACK --}}
         @if($viteIsActive)
