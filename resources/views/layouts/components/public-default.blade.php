@@ -49,7 +49,7 @@
         </noscript>
 
         {{-- Prism CSS & Prism JS --}}
-        @if(!empty($hasCodeBlocks))
+        @if($features['code'] ?? false)
             <link
                 rel="preload"
                 as="style"

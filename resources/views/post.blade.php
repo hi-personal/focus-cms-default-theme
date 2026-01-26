@@ -1,6 +1,8 @@
 <x-public-default
     :isMinimalViewFromController="($isMinimalViewFromController ?? null)"
+    :features="$features"
 >
+<!-- ALMA -->
     @push('meta_tags')
         <title>{{ config('app.name')." | ".($post->title) }}</title>
         <link rel="canonical" href="{{ url()->current() }}" />
