@@ -1,5 +1,6 @@
 <x-public-default
     :isMinimalViewFromController="($isMinimalViewFromController ?? null)"
+    :features="$features"
 >
     @if(!empty($head_image_url))
         <div class="w-full flex justify-items-center">

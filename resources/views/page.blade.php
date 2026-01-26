@@ -1,5 +1,6 @@
 <x-public-default
     :isMinimalViewFromController="($isMinimalViewFromController ?? null)"
+    :features="$features"
 >
     @push('meta_tags')
         <title>{{ config('app.name')." | ".($post->title) }}</title>
