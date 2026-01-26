@@ -5,12 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    @font-face {
-        font-family: "Material Design Icons";
-        font-display: swap;
-    }
-}
+
 
 /* Alapértelmezett szövegstílusok */
 h1 {
@@ -288,4 +283,11 @@ p {
 
 .footnote p {
     @apply !my-0;
+}
+
+
+@font-face {
+    font-family: "Material Design Icons";
+    font-display: swap !important;
+    src: local("Material Design Icons");
 }
