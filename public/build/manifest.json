@@ -1,6 +1,6 @@
 {
   "Themes/FocusDefaultTheme/resources/css/theme.css": {
-    "file": "css/theme-CYU21ORV.css",
+    "file": "css/theme-DAYCUAVp.css",
     "src": "Themes/FocusDefaultTheme/resources/css/theme.css",
     "isEntry": true
   },
@@ -46,7 +46,7 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "resources/css/app.css": {
-    "file": "css/app-DkLBCRQH.css",
+    "file": "css/app-CjL4hgfx.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -74,7 +74,7 @@
     "isEntry": true
   },
   "resources/js/uppy.js": {
-    "file": "assets/uppy-BiXo8WMm.js",
+    "file": "assets/uppy-BlHS1VJK.js",
     "name": "uppy",
     "src": "resources/js/uppy.js",
     "isEntry": true,

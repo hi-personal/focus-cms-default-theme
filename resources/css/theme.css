@@ -1,14 +1,16 @@
 @import '@mdi/font/css/materialdesignicons.min.css';
 @import 'photoswipe/dist/photoswipe.css';
 
-@font-face {
-    font-family: "Material Design Icons";
-    font-display: swap;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Material Design Icons";
+    font-display: swap;
+  }
+}
 
 /* Alapértelmezett szövegstílusok */
 h1 {
