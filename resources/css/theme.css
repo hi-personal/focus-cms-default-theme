@@ -1,5 +1,14 @@
-@import '@mdi/font/css/materialdesignicons.min.css';
+@import '@mdi/font/css/materialdesignicons.css';
 @import 'photoswipe/dist/photoswipe.css';
+
+@font-face {
+    font-family: "Material Design Icons";
+    font-display: swap;
+    src: local("Material Design Icons"),
+         url("@mdi/font/fonts/materialdesignicons-webfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -283,11 +292,4 @@ p {
 
 .footnote p {
     @apply !my-0;
-}
-
-
-@font-face {
-    font-family: "Material Design Icons";
-    font-display: swap !important;
-    src: local("Material Design Icons");
 }
