@@ -26,29 +26,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        {{-- 3rd party / theme head inject --}}
         {!! $sidebars['ts_FocusDefaultTheme_sidebar_head_source'] !!}
 
         @stack('meta_tags')
 
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" />
+        {{-- FONT: Bunny (nem render-blocking) --}}
+        <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 
-        <link rel="preload" as="style" href="{{ asset('assets/prism.js/prism.css') }}" onload="this.rel='stylesheet'">
-        <!-- <link rel="preload" as="style" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'onload="this.rel='stylesheet'"> -->
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        >
+        <noscript>
+            <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap">
+        </noscript>
 
+        {{-- Prism CSS (nem kritikus) --}}
+        <link
+            rel="preload"
+            as="style"
+            href="{{ asset('assets/prism.js/prism.css') }}"
+            onload="this.onload=null;this.rel='stylesheet'"
+        >
+        <noscript>
+            <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}">
+        </noscript>
+
+        {{-- Prism JS --}}
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
-        @if( $viteIsActive == true)
+        {{-- VITE / FALLBACK --}}
+        @if($viteIsActive)
+            {{-- Vite automatikusan kezeli a module + preloadot --}}
             @vite($viteAssets)
         @else
-            <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" />
-            <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
+            {{-- CSS NEM BLOKKOLÓ --}}
+            <link
+                rel="preload"
+                as="style"
+                href="{{ asset($theme_vite_data['css']) }}"
+                onload="this.onload=null;this.rel='stylesheet'"
+            >
+            <noscript>
+                <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}">
+            </noscript>
+
+            {{-- JS --}}
+            <script type="module" src="{{ asset($theme_vite_data['js']) }}" defer></script>
         @endif
 
-        @stack('head_scripts')
-
         @stack('head_styles')
+        @stack('head_scripts')
     </head>
+
     <body class="bg-white w-full min-h-screen flex flex-col">
         @if($isMinimalView == false)
             <!-- Fejléc -->
