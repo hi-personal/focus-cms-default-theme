@@ -11,6 +11,7 @@
         :section="$category->title ?? null"
         :tags="$tags?->pluck('title')->toArray() ?? []"
         :isHome="$is_home"
+        :homePageId="$homePageId"
     />
 
     <div class="">

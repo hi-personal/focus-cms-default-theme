@@ -7,9 +7,10 @@
         :title="$meta_title ?? $post->title"
         :description="$meta_description"
         :content="$post->content"
-        :image="$headImageUrl"
+        :image="$headImageUrl ?? null"
         :section="$category->title ?? null"
         :tags="$tags?->pluck('title')->toArray() ?? []"
+        :homePageId="$homePageId"
     />
 
 

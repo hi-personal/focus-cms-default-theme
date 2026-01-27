@@ -177,6 +177,11 @@ p {
     @apply my-2 py-4 px-4 inline-block border rounded;
 }
 
+.file-links-open,
+.file-links-dl {
+    @apply ml-2;
+}
+
 #twteszt-2 {
     @apply bg-blue-900 text-white p-10;
 }
