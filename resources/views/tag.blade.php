@@ -43,7 +43,7 @@
                 </p>
 
                 <p>
-                    <a href="{{ route('post.show', ['slug' => $post->name]) }}" class="text-blue-700 hover:text-blue-400 font-semibold">
+                    <a href="{{ route('post.show', ['slug' => $post->name]) }}" class="btn btn-sm btn-danger font-semibold">
                         Tovább az olvasáshoz<i class="mdi mdi-arrow-right"></i>
                     </a>
                 </p>
