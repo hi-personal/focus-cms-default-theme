@@ -22,7 +22,7 @@
         @foreach($posts as $post)
             @php
                 $plainText = trim(strip_tags(markdownToHtml($post->content)));
-                $excerpt   = Str::words($plainText, 40); // ~40 szó ≈ 240 karakter
+                $excerpt   = Str::words($plainText, 40, '');
                 $hasMore   = str_word_count($plainText) > 40;
             @endphp
             <div class="p-2">
