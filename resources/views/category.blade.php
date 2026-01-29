@@ -20,13 +20,21 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
         @foreach($posts as $post)
+            @php
+                $excerpt = Str::limit(trim(strip_tags(markdownToHtml($post->content))), 240);
+            @endphp
             <div class="p-2">
                 <p class="text-sm text-gray-400">{{ $category->title }}</p>
                 <p class="mt-1 mb-0 text-black text-2xl font-semibold">
                     <a href="{{ route('post.show', ['slug'=>$post->name]) }}" target="_self">{{ $post->title }}</a>
                 </p>
                 <p class="text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
-                <p class="my-2">{!! strip_tags(Str::limit(markdownToHtml($post->content), 240, '<span class="ml-1 text-gray-400">[...]</span>')) !!}</p>
+                <p class="my-2">
+                    {{ $excerpt }}
+                    @if (strlen($excerpt) === 240)
+                        <span class="ml-1 text-gray-400">[...]</span>
+                    @endif
+                </p>
                 <p class="">
                     <a
                         href="{{ route('post.show', ['slug'=>$post->name]) }}"
