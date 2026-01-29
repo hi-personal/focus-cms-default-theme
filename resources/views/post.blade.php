@@ -44,7 +44,13 @@
             {!! $post->content !!}
         </div>
 
-        @if($post->post_type_name == 'post')
+        @if(
+            $post->post_type_name == 'post'
+            && !(
+                isset($isMinimalViewFromController)
+                && $isMinimalViewFromController
+            )
+        )
             <div
                 class="mt-10 w-full block justify-center"
                 x-data="prevNextToggle()"
