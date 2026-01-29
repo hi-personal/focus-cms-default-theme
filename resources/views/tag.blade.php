@@ -19,27 +19,32 @@
     @endif
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
-       @foreach($posts as $post)
+        @foreach($tag->posts()->where('status', 'published')->get() as $post)
             @php
                 $plainText = trim(strip_tags(markdownToHtml($post->content)));
-                $excerpt   = Str::words($plainText, 40, '');
+                $excerpt   = Str::words($plainText, 40, ''); // nincs ...
                 $hasMore   = str_word_count($plainText) > 40;
             @endphp
-            <div class="p-2">
-                <p class="text-sm text-gray-400">{{ $category->title }}</p>
+
+            <div class="px-2">
+                <p class="text-sm text-gray-400">{{ $tag->title }}</p>
+
                 <p class="mt-1 mb-0 text-black text-2xl font-semibold">
-                    <a href="{{ route('post.show', ['slug'=>$post->name]) }}">{{ $post->title }}</a>
+                    <a href="{{ route('post.show', ['slug' => $post->name]) }}">{{ $post->title }}</a>
                 </p>
+
                 <p class="text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
+
                 <p class="my-2">
                     {{ $excerpt }}
                     @if ($hasMore)
                         <span class="ml-1 text-gray-400">[...]</span>
                     @endif
                 </p>
+
                 <p>
-                    <a href="{{ route('post.show', ['slug'=>$post->name]) }}" class="text-blue-700 hover:text-blue-400 font-semibold">
-                        Tovább az olvasáshoz <i class="mdi mdi-arrow-right"></i>
+                    <a href="{{ route('post.show', ['slug' => $post->name]) }}" class="text-blue-700 hover:text-blue-400 font-semibold">
+                        Tovább az olvasáshoz<i class="mdi mdi-arrow-right"></i>
                     </a>
                 </p>
             </div>
