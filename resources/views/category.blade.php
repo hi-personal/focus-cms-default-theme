@@ -21,10 +21,19 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
         @foreach($posts as $post)
             @php
-                $plainText = trim(strip_tags(markdownToHtml($post->content)));
-                $excerpt   = Str::words($plainText, 40, '');
-                $hasMore   = str_word_count($plainText) > 40;
+                $html      = markdownToHtml($post->content);
+                $plainText = trim(
+                    html_entity_decode(
+                        strip_tags($html),
+                        ENT_QUOTES | ENT_HTML5,
+                        'UTF-8'
+                    )
+                );
+
+                $excerpt = Str::words($plainText, 40, '');
+                $hasMore = str_word_count($plainText) > 40;
             @endphp
+
             <div class="p-2">
                 <p class="text-sm text-gray-400">{{ $category->title }}</p>
                 <p class="mt-1 mb-0 text-black text-2xl font-semibold">
