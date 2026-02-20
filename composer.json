@@ -14,10 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Themes\\FocusDefaultTheme\\": "src/"
+            "Themes\\FocusDefaultTheme\\": ""
         }
     },
     "extra": {
+        "theme": {
+            "name": "FocusDefaultTheme"
+        },
         "laravel": {
             "providers": [
                 "Themes\\FocusDefaultTheme\\Providers\\ThemeServiceProvider"
