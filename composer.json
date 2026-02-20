@@ -1,9 +1,21 @@
 {
-    "name": "istvan/focus-default-theme",
+    "name": "focus-cms/focus-default-theme",
     "type": "focus-theme",
-    "description": "A default focus theme for Laravel.",
+    "description": "The default theme for Focus CMS.",
+    "keywords": ["focus-cms", "theme", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "István Hatala"
+        }
+    ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Themes\\FocusDefaultTheme\\": "src/"
+        }
     },
     "extra": {
         "laravel": {
@@ -11,5 +23,7 @@
                 "Themes\\FocusDefaultTheme\\Providers\\ThemeServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
