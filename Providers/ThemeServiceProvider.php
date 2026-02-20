@@ -27,7 +27,6 @@ class ThemeServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (Schema::hasTable('options')) {
-
             $currentThemeName = $this->getCurrentThemeName();
             $this->registerThemeViews($currentThemeName);
             $this->registerThemeComponents();
