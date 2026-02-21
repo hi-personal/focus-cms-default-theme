@@ -1,5 +1,5 @@
 @php
-    $viteIsActive = check_theme_vite_is_active();
+    $viteIsActive = function_exists('check_module_vite_is_active') ? check_module_vite_is_active() : false;
 
     if ($viteIsActive === true) {
         $viteAssets = [
