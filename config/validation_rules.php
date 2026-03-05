@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Themes/FocusDefaultTheme/config/validation_rules.php
+ */
+
 return [
     'options' => [
         //Témára vonatkozó alapvető adatok
