@@ -33,7 +33,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- 3rd party / theme head inject --}}
-    {!! $sidebars['ts_FocusDefaultTheme_sidebar_head_source'] !!}
+
+    {!! $sidebars['ts_FocusDefaultTheme_sidebar_head_source'] ?? null !!}
 
     @stack('meta_tags')
 
@@ -89,10 +90,10 @@
 @if($isMinimalView == false)
     <!-- Fejléc -->
     <header
-        id="header"
+        id="header"sidebars
         class="w-full max-w-[1160px] mx-auto p-4 break-words whitespace-normal hyphens-auto"
     >
-        {!! $sidebars['ts_FocusDefaultTheme_sidebar_top_nav'] !!}
+        {!! $sidebars['ts_FocusDefaultTheme_sidebar_top_nav'] ?? null !!}
     </header>
 @endif
 
@@ -123,13 +124,13 @@
     >
         <div class="container mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div>{!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_1'] !!}</div>
-                <div>{!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_2'] !!}</div>
-                <div>{!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_3'] !!}</div>
+                <div>{!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_1'] ?? null !!}</div>
+                <div>{!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_2'] ?? null !!}</div>
+                <div>{!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_3'] ?? null !!}</div>
             </div>
 
             <div class="mt-6">
-                {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_4'] !!}
+                {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_4'] ?? null !!}
             </div>
         </div>
     </footer>

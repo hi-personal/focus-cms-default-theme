@@ -24,7 +24,7 @@
             @if(!empty($category))
                 <a
                     class="mr-4 font-semibold text-blue-600 hover:text-blue-400"
-                    href="{{ route('front.category', ['category' => $category->name]) }}"
+                    href="{{ route('taxonomy.'.$category->post_taxonomy_name.'.show.'.$post->lang, ['term' => $category->name]) }}"
                     target="_self"
                 >{{ $category->title }}</a>
             @endif
@@ -33,7 +33,7 @@
                 @foreach($tags as $tag)
                     <a
                         class="mr-2 font-semibold text-blue-600 hover:text-blue-400"
-                        href="{{ route('front.tag', ['tag' => $tag->name]) }}"
+                        href="{{ route('taxonomy.'.$tag->post_taxonomy_name.'.show.'.$post->lang, ['term' => $tag->name]) }}"
                         target="_self"
                     >#{{ $tag->title }}</a>
                 @endforeach
