@@ -20,7 +20,6 @@
         <p class="mb-1 text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
 
         <p class="mb-4 w-full">
-
             @if(!empty($category))
                 <a
                     class="mr-4 font-semibold text-blue-600 hover:text-blue-400"
@@ -94,7 +93,7 @@
                     <div class="grid grid-cols-[1fr_auto_1fr] gap-2 overflow-hidden">
                         <div class="flex text-blue-800 hover:text-blue-500 text-start">
                             @if(!empty($prevPostInTerm))
-                                <a href="{{ url($prevPostInTerm->name) }}" target="_self" class="w-full">
+                                <a href="{{ route('post.show.'.$prevPostInTerm->lang,$prevPostInTerm->name) }}" target="_self" class="w-full">
                                     <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
                                     <span class="inline-block w-full my-1">{{ $prevPostInTerm->title }}</span>
                                 </a>
@@ -105,7 +104,7 @@
                         </div>
                         <div class="flex text-blue-800 hover:text-blue-500 text-end">
                             @if(!empty($nextPostInTerm))
-                                <a href="{{ url($nextPostInTerm->name) }}" target="_self" class="w-full">
+                                <a href="{{ route('post.show.'.$nextPostInTerm->lang,$nextPostInTerm->name) }}" target="_self" class="w-full">
                                     <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
                                     <span class="inline-block w-full my-1">{{ $nextPostInTerm->title }}</span>
                                 </a>
@@ -129,7 +128,8 @@
                     <div class="grid grid-cols-[1fr_auto_1fr] gap-2 overflow-hidden">
                         <div class="flex text-blue-800 hover:text-blue-500 text-start">
                             @if(!empty($prevPost))
-                                <a href="{{ url($prevPost->name) }}" target="_self" class="w-full">
+
+                                <a href="{{ route('post.show.'.$prevPost->lang,$prevPost->name) }}" target="_self" class="w-full">
                                     <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
                                     <span class="inline-block w-full my-1">{{ $prevPost->title }}</span>
                                 </a>
@@ -140,7 +140,7 @@
                         </div>
                         <div class="flex text-blue-800 hover:text-blue-500 text-end">
                             @if(!empty($nextPost))
-                                <a href="{{ url($nextPost->name) }}" target="_self" class="w-full">
+                                <a href="{{ route('post.show.'.$nextPost->lang,$nextPost->name) }}" target="_self" class="w-full">
                                     <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
                                     <span class="inline-block w-full my-1">{{ $nextPost->title }}</span>
                                 </a>
