@@ -37,7 +37,7 @@
             <div class="p-2">
                 <p class="text-sm text-gray-400">{{ $category->title }}</p>
                 <p class="mt-1 mb-0 text-black text-2xl font-semibold">
-                    <a href="{{ route('post.show', ['slug'=>$post->name]) }}">{{ $post->title }}</a>
+                    <a href="{{ route('post.show.' . ($post->lang ?? app()->getLocale()), ['slug' => $post->name]) }}">{{ $post->title }}</a>
                 </p>
                 <p class="text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
                 <p class="my-2">
@@ -47,7 +47,7 @@
                     @endif
                 </p>
                 <p>
-                    <a href="{{ route('post.show', ['slug'=>$post->name]) }}" class="btn btn-sm btn-primary font-semibold">
+                    <a href="{{ route('post.show.' . ($post->lang ?? app()->getLocale()), ['slug' => $post->name]) }}" class="btn btn-sm btn-primary font-semibold">
                         Tovább az olvasáshoz <i class="mdi mdi-arrow-right"></i>
                     </a>
                 </p>

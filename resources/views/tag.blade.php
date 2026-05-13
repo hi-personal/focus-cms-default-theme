@@ -21,7 +21,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
         @foreach($tag->posts()->where('status', 'published')->get() as $post)
             @php
-                $html      = markdownToHtml($post->content);
+                $html = markdownToHtml($post->content);
                 $plainText = trim(
                     html_entity_decode(
                         strip_tags($html),
@@ -38,7 +38,7 @@
                 <p class="text-sm text-gray-400">{{ $tag->title }}</p>
 
                 <p class="mt-1 mb-0 text-black text-2xl font-semibold">
-                    <a href="{{ route('post.show', ['slug' => $post->name]) }}">{{ $post->title }}</a>
+                    <a href="{{ route('post.show.' . ($post->lang ?? app()->getLocale()), ['slug' => $post->name]) }}">{{ $post->title }}</a>
                 </p>
 
                 <p class="text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
@@ -51,7 +51,7 @@
                 </p>
 
                 <p>
-                    <a href="{{ route('post.show', ['slug' => $post->name]) }}" class="btn btn-sm btn-primary font-semibold">
+                    <a href="{{ route('post.show.' . ($post->lang ?? app()->getLocale()), ['slug' => $post->name]) }}" class="btn btn-sm btn-primary font-semibold">
                         Tovább az olvasáshoz<i class="mdi mdi-arrow-right"></i>
                     </a>
                 </p>
