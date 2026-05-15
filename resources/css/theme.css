@@ -396,6 +396,22 @@ p {
          hover:!text-blue-500;
 }
 
+
+
+[x-cloak] {
+  display: none !important;
+}
+
+blockquote {
+    quotes: none !important;
+}
+
+blockquote::before,
+blockquote::after {
+    content: none !important;
+}
+
+
 /* Tailwind Build Force */
 ._tw-build-force {
   @apply hidden sm:block md:block lg:block absolute right-0 top-full mt-2 z-50 w-44 p-2 shadow bg-base-100 rounded-box;
