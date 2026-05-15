@@ -8,32 +8,60 @@
         :description="$meta_description"
         :content="$post->content"
         :image="$headImageUrl ?? null"
-        :section="$category->title ?? null"
-        :tags="$tags?->pluck('title')->toArray() ?? []"
+        :section="$category?->localizedTitle($post->lang, false) ?? null"
+        :tags="$tags?->map(fn($tag) => $tag->localizedTitle($post->lang, false))->filter()->values()->toArray() ?? []"
         :homePageId="$homePageId"
     />
 
     <div class="">
         <h1 class="text-4xl font-bold mb-3">{{ $post->title }}</h1>
 
-        <p class="mb-1 text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
+        <p class="mb-1 text-gray-600 w-full">
+            {{ $post->created_at->format('Y-m-d') }}
+        </p>
 
         <p class="mb-4 w-full">
             @if(!empty($category))
                 <a
                     class="mr-4 font-semibold text-blue-600 hover:text-blue-400"
-                    href="{{ route('taxonomy.'.$category->post_taxonomy_name.'.show.'.$post->lang, ['term' => $category->name]) }}"
+                    href="{{ route(
+                        'taxonomy.'.$category->post_taxonomy_name.'.show.'.$post->lang,
+                        [
+                            'term' => $category->localizedName(
+                                $post->lang,
+                                false
+                            )
+                        ]
+                    ) }}"
                     target="_self"
-                >{{ $category->title }}</a>
+                >
+                    {{ $category->localizedTitle(
+                        $post->lang,
+                        false
+                    ) }}
+                </a>
             @endif
 
             @if(!empty($tags))
                 @foreach($tags as $tag)
                     <a
                         class="mr-2 font-semibold text-blue-600 hover:text-blue-400"
-                        href="{{ route('taxonomy.'.$tag->post_taxonomy_name.'.show.'.$post->lang, ['term' => $tag->name]) }}"
+                        href="{{ route(
+                            'taxonomy.'.$tag->post_taxonomy_name.'.show.'.$post->lang,
+                            [
+                                'term' => $tag->localizedName(
+                                    $post->lang,
+                                    false
+                                )
+                            ]
+                        ) }}"
                         target="_self"
-                    >#{{ $tag->title }}</a>
+                    >
+                        #{{ $tag->localizedTitle(
+                            $post->lang,
+                            false
+                        ) }}
+                    </a>
                 @endforeach
             @endif
         </p>
@@ -54,11 +82,13 @@
                 x-data="prevNextToggle()"
             >
                 <div
-                    class="w-fit mx-auto !mb-6 shadow-lg py-4 px-6  grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center space-x-2 text-center text-lg cursor-pointer border rounded"
+                    class="w-fit mx-auto !mb-6 shadow-lg py-4 px-6 grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center space-x-2 text-center text-lg cursor-pointer border rounded"
                     :class="isCategoryFilter ? 'text-purple-600' : 'text-blue-900'"
                     @click="isCategoryFilter = !isCategoryFilter"
                 >
-                    <div class="inline-flex justify-center sm:justify-start items-center">További tartalmak:</div>
+                    <div class="inline-flex justify-center sm:justify-start items-center">
+                        További tartalmak:
+                    </div>
 
                     <div class="inline-flex w-full sm:w-auto justify-center sm:justify-start items-center space-x-4">
                         <input
@@ -69,7 +99,12 @@
                             :value="isCategoryFilter ? 1 : 0"
                             x-cloak
                         >
-                        <span class="inline-block" x-text="isCategoryFilter ? 'a kategóriában' : 'mind'"></span>
+
+                        <span
+                            class="inline-block"
+                            x-text="isCategoryFilter ? 'a kategóriában' : 'mind'"
+                        ></span>
+
                         <i
                             class="inline-block mdi scale-[180%]"
                             :class="isCategoryFilter ? 'mdi-filter-check-outline' : 'mdi-filter-off-outline'"
@@ -90,25 +125,49 @@
                     x-cloak
                 >
                     <div class="grid grid-cols-[1fr_auto_1fr] gap-2 overflow-hidden">
+
                         <div class="flex text-blue-800 hover:text-blue-500 text-start">
                             @if(!empty($prevPostInTerm))
-                                <a href="{{ route('post.show.'.$prevPostInTerm->lang,$prevPostInTerm->name) }}" target="_self" class="w-full">
-                                    <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
-                                    <span class="inline-block w-full my-1">{{ $prevPostInTerm->title }}</span>
+                                <a
+                                    href="{{ route('post.show.'.$prevPostInTerm->lang,$prevPostInTerm->name) }}"
+                                    target="_self"
+                                    class="w-full"
+                                >
+                                    <span class="inline-block w-full my-1">
+                                        <i class="mdi mdi-arrow-left-thin"></i>
+                                        Előző
+                                    </span>
+
+                                    <span class="inline-block w-full my-1">
+                                        {{ $prevPostInTerm->title }}
+                                    </span>
                                 </a>
                             @endif
                         </div>
+
                         <div class="flex items-center">
                             <div class="flex-col h-[calc(80%)] w-[1px] bg-gray-400"></div>
                         </div>
+
                         <div class="flex text-blue-800 hover:text-blue-500 text-end">
                             @if(!empty($nextPostInTerm))
-                                <a href="{{ route('post.show.'.$nextPostInTerm->lang,$nextPostInTerm->name) }}" target="_self" class="w-full">
-                                    <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
-                                    <span class="inline-block w-full my-1">{{ $nextPostInTerm->title }}</span>
+                                <a
+                                    href="{{ route('post.show.'.$nextPostInTerm->lang,$nextPostInTerm->name) }}"
+                                    target="_self"
+                                    class="w-full"
+                                >
+                                    <span class="inline-block w-full my-1">
+                                        Következő
+                                        <i class="mdi mdi-arrow-right-thin"></i>
+                                    </span>
+
+                                    <span class="inline-block w-full my-1">
+                                        {{ $nextPostInTerm->title }}
+                                    </span>
                                 </a>
                             @endif
                         </div>
+
                     </div>
                 </div>
 
@@ -125,26 +184,49 @@
                     x-cloak
                 >
                     <div class="grid grid-cols-[1fr_auto_1fr] gap-2 overflow-hidden">
+
                         <div class="flex text-blue-800 hover:text-blue-500 text-start">
                             @if(!empty($prevPost))
+                                <a
+                                    href="{{ route('post.show.'.$prevPost->lang,$prevPost->name) }}"
+                                    target="_self"
+                                    class="w-full"
+                                >
+                                    <span class="inline-block w-full my-1">
+                                        <i class="mdi mdi-arrow-left-thin"></i>
+                                        Előző
+                                    </span>
 
-                                <a href="{{ route('post.show.'.$prevPost->lang,$prevPost->name) }}" target="_self" class="w-full">
-                                    <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
-                                    <span class="inline-block w-full my-1">{{ $prevPost->title }}</span>
+                                    <span class="inline-block w-full my-1">
+                                        {{ $prevPost->title }}
+                                    </span>
                                 </a>
                             @endif
                         </div>
+
                         <div class="flex items-center">
                             <div class="flex-col h-[calc(80%)] w-[1px] bg-gray-400"></div>
                         </div>
+
                         <div class="flex text-blue-800 hover:text-blue-500 text-end">
                             @if(!empty($nextPost))
-                                <a href="{{ route('post.show.'.$nextPost->lang,$nextPost->name) }}" target="_self" class="w-full">
-                                    <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
-                                    <span class="inline-block w-full my-1">{{ $nextPost->title }}</span>
+                                <a
+                                    href="{{ route('post.show.'.$nextPost->lang,$nextPost->name) }}"
+                                    target="_self"
+                                    class="w-full"
+                                >
+                                    <span class="inline-block w-full my-1">
+                                        Következő
+                                        <i class="mdi mdi-arrow-right-thin"></i>
+                                    </span>
+
+                                    <span class="inline-block w-full my-1">
+                                        {{ $nextPost->title }}
+                                    </span>
                                 </a>
                             @endif
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -156,15 +238,28 @@
             function prevNextToggle() {
                 return {
                     isCategoryFilter: true,
-                    init() {
-                        let val = Cookies.get('PrevNextPostCategoryFilter');
-                        console.log("isCategoryFilter: " + this.isCategoryFilter);
-                        this.isCategoryFilter = val !== 'false'; // ha nincs: true
 
-                        this.$watch('isCategoryFilter', (val) => {
-                            console.log("CookieSetVal: " + val);
-                            Cookies.set('PrevNextPostCategoryFilter', val ? 'true' : 'false', { expires: 7 });
-                        });
+                    init() {
+
+                        let val = Cookies.get(
+                            'PrevNextPostCategoryFilter'
+                        );
+
+                        this.isCategoryFilter =
+                            val !== 'false';
+
+                        this.$watch(
+                            'isCategoryFilter',
+                            (val) => {
+
+                                Cookies.set(
+                                    'PrevNextPostCategoryFilter',
+                                    val ? 'true' : 'false',
+                                    { expires: 7 }
+                                );
+
+                            }
+                        );
                     }
                 }
             }
