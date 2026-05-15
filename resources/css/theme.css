@@ -398,5 +398,5 @@ p {
 
 /* Tailwind Build Force */
 ._tw-build-force {
-  @apply hidden sm:block md:block lg:block;
+  @apply hidden sm:block md:block lg:block absolute right-0 top-full mt-2 z-50 w-44 p-2 shadow bg-base-100 rounded-box;
 }
