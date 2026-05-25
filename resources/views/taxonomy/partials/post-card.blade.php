@@ -32,6 +32,6 @@
         'post.show.'.cms_locale(),
         ['slug'=>$post->name]
         ) }}"
-        class="btn btn-sm md:btn-md btn-primary ">Tovább az olvasáshoz</a>
+        class="btn btn-sm md:btn-md btn-primary">Tovább az olvasáshoz</a>
     </p>
 </div>
