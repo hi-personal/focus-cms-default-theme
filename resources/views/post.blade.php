@@ -66,7 +66,7 @@
             @endif
         </p>
 
-        <div class="post-content">
+        <div class="prose">
             {!! $post->content !!}
         </div>
 
