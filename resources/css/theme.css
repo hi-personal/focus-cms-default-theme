@@ -16,7 +16,8 @@
   font-display: swap;
 }
 
-.post-content p > .btn {
+.post-content p > .btn,
+.prose p > .btn {
     color: var(--btn-fg);
 }
 
