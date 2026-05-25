@@ -50,13 +50,9 @@ h6 {
     @apply text-base font-semibold mt-2 mb-2;
 }
 
-
-
-
 a {
     cursor: pointer;
 }
-
 
 blockquote {
     @apply !block !relative !border-l-4 !border-gray-500 !pl-4 !py-3 !my-4 !ml-1;
@@ -79,7 +75,7 @@ hr {
 }
 
 p {
-    @apply !inline-block !w-full leading-relaxed !my-2 md:text-lg leading-7;
+    @apply !inline-block !w-full leading-relaxed !my-2 text-base md:text-lg;
 }
 
 
