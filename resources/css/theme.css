@@ -16,8 +16,6 @@
   font-display: swap;
 }
 
-
-
 /* Alapértelmezett szövegstílusok */
 h1 {
     @apply text-4xl font-bold mt-6 mb-4;
