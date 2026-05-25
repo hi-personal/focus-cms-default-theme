@@ -1,4 +1,5 @@
 @import 'photoswipe/dist/photoswipe.css' layer(base);
+@import './build-force.css';
 
 @tailwind base;
 @tailwind components;
