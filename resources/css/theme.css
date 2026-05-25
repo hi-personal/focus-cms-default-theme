@@ -314,7 +314,7 @@ blockquote::after {
     }
 
     /* daisyUI linkek */
-    .link {
+    .pont-content .link {
         text-decoration-line: underline;
     }
 
