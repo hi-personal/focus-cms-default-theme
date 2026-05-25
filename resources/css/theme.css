@@ -49,7 +49,11 @@ p {
 a,
 a:visited,
 a:active {
-    @apply !link !link-primary cursor-pointer;
+    @apply text-red-600 cursor-pointer;
+}
+
+a:hover {
+    @apply text-red-500;
 }
 
 blockquote {
