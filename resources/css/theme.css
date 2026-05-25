@@ -1,5 +1,4 @@
 @import 'photoswipe/dist/photoswipe.css' layer(base);
-@import './build-force.css';
 
 @tailwind base;
 @tailwind components;
@@ -322,4 +321,17 @@ blockquote::after {
         color: var(--color-accent);
     }
 
+}
+
+.build-force {
+    @apply
+        btn
+        btn-primary
+        btn-secondary
+        btn-success
+        btn-warning
+        btn-error
+        link
+        link-primary
+        link-secondary;
 }
