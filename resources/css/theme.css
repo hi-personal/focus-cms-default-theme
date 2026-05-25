@@ -309,6 +309,10 @@ blockquote::after {
         color: var(--btn-fg);
     }
 
+    .sidebar-widget .btn {
+        color: var(--btn-fg);
+    }
+
     /* daisyUI linkek */
     .link {
         text-decoration-line: underline;
