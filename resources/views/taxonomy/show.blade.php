@@ -1,7 +1,7 @@
 <x-public-default
     :isMinimalViewFromController="($isMinimalViewFromController ?? null)"
 >
-    <div class="prose">
+    <div class="post-content">
         @if(!empty($meta['head_image_url'] ?? null))
             <div class="w-full flex justify-items-center">
                 <img

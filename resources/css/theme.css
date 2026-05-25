@@ -4,168 +4,181 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* ==========================
+   FONTS
+========================== */
+
 @font-face {
-  font-family: "Material Design Icons";
-  src:
-    url("../fonts/materialdesignicons-webfont.woff2") format("woff2"),
-    url("../fonts/materialdesignicons-webfont.woff") format("woff"),
-    url("../fonts/materialdesignicons-webfont.ttf") format("truetype"),
-    url("../fonts/materialdesignicons-webfont.eot");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Material Design Icons";
+    src:
+        url("../fonts/materialdesignicons-webfont.woff2") format("woff2"),
+        url("../fonts/materialdesignicons-webfont.woff") format("woff"),
+        url("../fonts/materialdesignicons-webfont.ttf") format("truetype"),
+        url("../fonts/materialdesignicons-webfont.eot");
+    font-display: swap;
 }
 
-.post-content p > .btn,
-.prose p > .btn {
-    color: var(--btn-fg);
-}
 
-.post-content {
-    @apply w-full;
-}
+/* ==========================
+   GLOBAL
+========================== */
 
-/* Alapértelmezett szövegstílusok */
-h1 {
-    @apply text-4xl font-bold mt-6 mb-4;
-}
-
-h2 {
-    @apply text-3xl font-semibold mt-6 mb-3;
-}
-
-h3 {
-    @apply text-2xl font-medium mt-5 mb-3;
-}
-
-h4 {
-    @apply text-xl font-medium mt-4 mb-2;
-}
-
-h5 {
-    @apply text-lg font-medium mt-3 mb-2;
-}
-
-h6 {
-    @apply text-base font-semibold mt-2 mb-2;
+[x-cloak] {
+    display: none !important;
 }
 
 a {
     cursor: pointer;
 }
 
-blockquote {
-    @apply !block !relative !border-l-4 !border-gray-500 !pl-4 !py-3 !my-4 !ml-1;
+
+/* ==========================
+   CONTENT
+========================== */
+
+.post-content {
+    @apply w-full text-base-content;
 }
 
-ul {
+.post-content h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mt-6 mb-4;
+}
+
+.post-content h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold mt-6 mb-3;
+}
+
+.post-content h3 {
+    @apply text-xl md:text-2xl lg:text-3xl font-medium mt-5 mb-3;
+}
+
+.post-content h4 {
+    @apply text-lg md:text-xl font-medium mt-4 mb-2;
+}
+
+.post-content h5 {
+    @apply text-base md:text-lg font-medium mt-3 mb-2;
+}
+
+.post-content h6 {
+    @apply text-base font-semibold mt-2 mb-2;
+}
+
+.post-content p {
+    @apply block my-2 text-base md:text-lg leading-relaxed;
+}
+
+.post-content ul {
     @apply list-disc pl-6 mb-4;
 }
 
-ol {
+.post-content ol {
     @apply list-decimal pl-6 mb-4;
 }
 
-li {
+.post-content li {
     @apply mb-2;
 }
 
-hr {
-    @apply border-t border-gray-300 my-6;
+.post-content hr {
+    @apply border-t border-base-300 my-6;
 }
 
-p {
-    @apply !inline-block !w-full leading-relaxed !my-2 text-base md:text-lg;
+.post-content blockquote {
+    @apply block relative border-l-4 border-base-300 pl-4 py-3 my-4;
+}
+
+blockquote {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after {
+    content: none;
 }
 
 
+/* ==========================
+   DAISYUI FIX
+========================== */
 
-.center {
-    @apply justify-center items-center inline-block text-red-800;
-    }
+.post-content .btn {
+    color: var(--btn-fg);
+}
 
-    .table {
+
+/* ==========================
+   TABLE
+========================== */
+
+.table {
     @apply w-full border-collapse;
+}
 
-    thead {
-        @apply bg-gray-300;
+.table thead {
+    @apply bg-base-200;
+}
 
-        th {
-        @apply px-4 py-2 text-left font-semibold border border-gray-400;
-        }
-    }
+.table thead th {
+    @apply px-4 py-2 text-left border border-base-300;
+}
 
-    tbody {
-        tr {
-        @apply border-b border-gray-200;
+.table tbody tr {
+    @apply border-b border-base-300;
+}
 
-        &:hover {
-            @apply bg-gray-50;
-        }
+.table tbody tr:hover {
+    @apply bg-base-100;
+}
 
-        td {
-            @apply px-4 py-2 border border-gray-200;
-        }
-        }
-    }
+.table tbody td {
+    @apply px-4 py-2 border border-base-300;
+}
 
-    /* Optional striped rows */
-    &.striped tbody tr:nth-child(odd) {
-        @apply bg-gray-100;
-    }
+.table.striped tbody tr:nth-child(odd) {
+    @apply bg-base-100;
+}
 
-    /* Optional condensed version */
-    &.condensed {
-        td, th {
-        @apply px-2 py-1;
-        }
-    }
-    }
+.table.condensed td,
+.table.condensed th {
+    @apply px-2 py-1;
+}
 
 
-[x-cloak] { display: none !important; }
-
-
-
-.mdi.md-18 { font-size: 18px; }
-.mdi.md-24 { font-size: 24px; }
-.mdi.md-36 { font-size: 36px; }
-.mdi.md-48 { font-size: 48px; }
+/* ==========================
+   SIDEBAR
+========================== */
 
 .sidebar-widget {
-    @apply mb-4 bg-white text-black;
+    @apply mb-4 bg-base-100 text-base-content;
 }
 
 .sidebar-widget-head {
     @apply my-1 mb-2 text-2xl uppercase;
 }
 
-.sidebar-widget-content,
-.sidebar-widget-content p {
-    @apply !block !w-full !text-lg !leading-[1.2] !text-black;
+.sidebar-widget-content {
+    @apply block w-full text-lg leading-tight;
 }
 
-/*
-.sidebar-widget-content a,
-.sidebar-widget-content a:visited,
-.sidebar-widget-content p a,
-.sidebar-widget-content p a:visited {
-  @apply !text-red-800;
-}
 
-.sidebar-widget-content a:hover,
-.sidebar-widget-content p a:hover {
-    @apply  !text-red-400;
-} */
-
+/* ==========================
+   NAVIGATION
+========================== */
 
 .top-menu-item {
-    @apply inline-block my-1 mx-1 py-3 text-base border-white border-b-2 border-solid  hover:border-gray-600;
+    @apply inline-block mx-1 py-3 text-base border-b-2 border-transparent hover:border-base-content;
 }
 
 .active {
-    @apply border-gray-600;
+    @apply border-base-content;
 }
+
+
+/* ==========================
+   FILE LINKS
+========================== */
 
 .file-links {
     @apply my-2 py-4 px-4 inline-block border rounded;
@@ -176,16 +189,24 @@ p {
     @apply ml-2;
 }
 
-#twteszt-2 {
-    @apply bg-blue-900 text-white p-10;
-}
+
+/* ==========================
+   MDI
+========================== */
+
+.mdi.md-18 { font-size:18px; }
+.mdi.md-24 { font-size:24px; }
+.mdi.md-36 { font-size:36px; }
+.mdi.md-48 { font-size:48px; }
 
 
+/* ==========================
+   PHOTOSWIPE
+========================== */
 
-/* resources/css/app.css */
 .pswp {
-    @apply z-[99999];
-    box-sizing: content-box !important;
+    z-index: 99999;
+    box-sizing: content-box;
 }
 
 .pswp__img {
@@ -199,117 +220,83 @@ p {
 }
 
 
+/* ==========================
+   IMAGES
+========================== */
+
 .image-with-viewer {
     @apply inline-block my-4;
 }
 
 .image-with-viewer-with-text {
     container-type: inline-size;
-    @apply my-4 w-full inline-block shadow-lg border border-gray-100 rounded-sm;
+    @apply my-4 w-full shadow-lg border border-base-300 rounded;
 }
 
 .img-figure {
-    @apply inline-flex items-center ;
+    @apply inline-flex items-center;
 }
 
 .img-figure-with-text {
-    @apply w-full grid grid-cols-1 md:grid-cols-[auto_minmax(30%,_1fr)] items-center text-left;
-}
-
-
-@container (max-width: 768px) {
-  .img-figure-with-text {
-    @apply grid-cols-1;
-  }
+    @apply w-full grid grid-cols-1 md:grid-cols-[auto_minmax(30%,1fr)];
 }
 
 .img-figure-a {
     overflow: visible;
-    @apply inline-flex lg:inline-block max-lg:text-center;
+    @apply inline-flex lg:inline-block;
 }
 
 .img-figure-img {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    @apply rounded inline-block mx-auto;
+    @apply rounded mx-auto;
+    transition: .2s;
 }
 
 .img-figure-img:hover {
     transform: scale(1.02);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    @apply border border-gray-100;
 }
 
 .img-figcaption {
-    @apply inline-block p-3 min-w-[10px];
+    @apply p-3;
 }
+
+
+/* ==========================
+   GALLERY
+========================== */
 
 .image-gallery-wrapper {
     container-type: inline-size;
 }
 
 .gallery-container {
-    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4;
-}
-
-@container (max-width: 320px) {
-    .gallery-container {
-        @apply grid-cols-1;
-    }
-}
-
-@container (min-width: 321px) and (max-width: 448px) {
-    .gallery-container {
-        @apply grid-cols-2;
-    }
-}
-
-@container (min-width: 449px) and (max-width: 768px) {
-    .gallery-container {
-        @apply grid-cols-3;
-    }
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4;
 }
 
 .gallery-item {
-    @apply inline-block m-2 p-0 w-full h-full justify-center bg-gray-200 border-gray-200 border rounded items-center;
+    @apply m-2 w-full bg-base-200 border border-base-300 rounded;
 }
 
 .gallery-item:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.25);
+    transform: scale(1.03);
 }
 
 .gallery-item-link {
-    @apply aspect-square w-full h-full;
+    @apply aspect-square size-full;
 }
 
 .gallery-item-link-image {
-    @apply object-cover rounded w-full h-full;
+    @apply size-full object-cover rounded;
 }
 
 
+/* ==========================
+   FOOTNOTE
+========================== */
+
 .footnote {
-    @apply my-2 !py-0;
+    @apply my-2 py-0;
 }
 
 .footnote p {
-    @apply !my-0;
-}
-
-[x-cloak] {
-  display: none !important;
-}
-
-blockquote {
-    quotes: none !important;
-}
-
-blockquote::before,
-blockquote::after {
-    content: none !important;
-}
-
-
-/* Tailwind Build Force */
-._tw-build-force {
-  @apply hidden sm:block md:block lg:block absolute right-0 top-full mt-2 z-50 w-44 p-2 shadow bg-base-100 rounded-box;
+    @apply my-0;
 }
