@@ -300,3 +300,25 @@ blockquote::after {
 .footnote p {
     @apply my-0;
 }
+
+
+@layer components {
+
+    .link {
+        color: inherit;
+        text-decoration-line: underline;
+    }
+
+    .link-primary {
+        color: var(--color-primary);
+    }
+
+    .link-secondary {
+        color: var(--color-secondary);
+    }
+
+    .link-accent {
+        color: var(--color-accent);
+    }
+
+}
