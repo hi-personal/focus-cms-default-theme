@@ -303,8 +303,15 @@ blockquote::after {
 
 
 @layer components {
+
+    /* daisyUI gombok */
+    .btn {
+        color: var(--btn-fg);
+    }
+
+    /* daisyUI linkek */
     .link {
-        color: inherit;
+        text-decoration-line: underline;
     }
 
     .link-primary {
@@ -319,9 +326,6 @@ blockquote::after {
         color: var(--color-accent);
     }
 
-    .post-content .link {
-        text-decoration-line: underline;
-    }
 }
 
 .build-force {
