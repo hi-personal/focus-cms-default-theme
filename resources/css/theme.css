@@ -159,7 +159,7 @@ blockquote::after {
 }
 
 .sidebar-widget-content {
-    @apply block w-full text-lg leading-tight;
+    @apply block w-full text-lg leading-relaxed;
 }
 
 
