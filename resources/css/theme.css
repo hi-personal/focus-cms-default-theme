@@ -303,7 +303,6 @@ blockquote::after {
 
 
 @layer components {
-
     .link {
         color: inherit;
     }
