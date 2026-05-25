@@ -1,4 +1,4 @@
-@import 'photoswipe/dist/photoswipe.css';
+@import 'photoswipe/dist/photoswipe.css' layer(base);
 
 @tailwind base;
 @tailwind components;
@@ -14,6 +14,14 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+.post-content p > .btn {
+    color: var(--btn-fg);
+}
+
+.post-content {
+    @apply w-full;
 }
 
 /* Alapértelmezett szövegstílusok */
@@ -43,18 +51,13 @@ h6 {
 
 
 p {
-    @apply !inline-block !w-full leading-relaxed !my-2 !text-base;
+    @apply !inline-block !w-full leading-relaxed !my-2 text-base;
 }
 
-a,
-a:visited,
-a:active {
-    @apply text-red-600 cursor-pointer;
+a {
+    cursor: pointer;
 }
 
-a:hover {
-    @apply text-red-500;
-}
 
 blockquote {
     @apply !block !relative !border-l-4 !border-gray-500 !pl-4 !py-3 !my-4 !ml-1;

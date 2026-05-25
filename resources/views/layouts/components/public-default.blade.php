@@ -85,7 +85,7 @@
     @stack('head_scripts')
 </head>
 
-<body class="bg-white text-black w-full min-h-screen flex flex-col">
+<body class="bg-white w-full min-h-screen flex flex-col">
 
 @if($isMinimalView == false)
     <!-- Fejléc -->

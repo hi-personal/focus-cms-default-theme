@@ -14,10 +14,10 @@
 <div class="p-2">
     <p class="text-sm text-gray-400">{{ $term->title }}</p>
     <p class="mt-1 mb-0 text-black text-2xl font-semibold">
-        <a href="{{ route(
-        'post.show.'.cms_locale(),
-        ['slug'=>$post->name]
-        ) }}">{{ $post->title }}</a>
+        <a
+            class="text-red-600 hover:text-red-500"
+            href="{{ route('post.show.'.cms_locale(), ['slug'=>$post->name]) }}"
+        >{{ $post->title }}</a>
     </p>
     <p class="text-gray-600">{{ $post->created_at->format('Y-m-d') }} </p>
     <p class="my-2">
@@ -32,6 +32,6 @@
         'post.show.'.cms_locale(),
         ['slug'=>$post->name]
         ) }}"
-        class="btn btn-sm btn-primary font-semibold">Tovább az olvasáshoz</a>
+        class="btn btn-sm btn-primary ">Tovább az olvasáshoz</a>
     </p>
 </div>
