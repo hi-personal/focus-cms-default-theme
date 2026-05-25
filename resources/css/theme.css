@@ -58,15 +58,15 @@ a {
 }
 
 .post-content h5 {
-    @apply text-base md:text-lg font-medium mt-3 mb-2;
+    @apply text-black md:text-lg font-medium mt-3 mb-2;
 }
 
 .post-content h6 {
-    @apply text-base font-semibold mt-2 mb-2;
+    @apply text-black font-semibold mt-2 mb-2;
 }
 
 .post-content p {
-    @apply block my-2 text-base md:text-lg leading-relaxed;
+    @apply block my-2 text-black md:text-lg leading-relaxed;
 }
 
 .post-content ul {
