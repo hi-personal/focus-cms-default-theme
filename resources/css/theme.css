@@ -168,11 +168,11 @@ blockquote::after {
 ========================== */
 
 .top-menu-item {
-    @apply inline-block mx-1 py-3 text-base border-b-2 border-transparent hover:border-base-content;
+    @apply inline-block mx-1 py-3 text-base border-b-2 border-transparent hover:border-black;
 }
 
 .active {
-    @apply border-base-content;
+    @apply border-black;
 }
 
 
