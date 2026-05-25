@@ -51,9 +51,7 @@ h6 {
 }
 
 
-p {
-    @apply !inline-block !w-full leading-relaxed !my-2 text-base;
-}
+
 
 a {
     cursor: pointer;
@@ -81,7 +79,7 @@ hr {
 }
 
 p {
-    @apply  text-lg sm:text-lg md:text-xl;
+    @apply !inline-block !w-full leading-relaxed !my-2 md:text-lg leading-7;
 }
 
 
