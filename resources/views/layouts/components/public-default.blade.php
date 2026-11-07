@@ -3,7 +3,7 @@
 @endphp
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,10 +66,10 @@
 
 <main
     id="content"
-    class="w-full lg:bg-gray-200 flex-1 py-0 md:py-1 lg:py-16 wrap-break-word whitespace-normal hyphens-auto"
+    class="w-full lg:bg-gray-200 dark:lg:bg-black flex-1 py-0 md:py-1 lg:py-16 wrap-break-word whitespace-normal hyphens-auto"
 >
     <div
-        class="w-full max-w-290 mx-auto bg-base-100 px-6 pt-8 pb-10 shadow-xl lg:px-8 lg:pt-10 lg:pb-20"
+        class="w-full max-w-290 mx-auto bg-base-100 dark:bg-black px-6 pt-8 pb-10 shadow-xl lg:px-8 lg:pt-10 lg:pb-20"
     >
         {{ $slot }}
     </div>
@@ -116,9 +116,9 @@
 
     <footer
         id="footer"
-        class="w-full max-w-290 mx-auto mt-16 py-8 px-6 text-base-content wrap-break-word whitespace-normal hyphens-auto"
+        class="w-full dark:bg-black mt-16 py-8 px-6 dark:border-t-2 dark:border-gray-400 text-base-content wrap-break-word whitespace-normal hyphens-auto"
     >
-        <div class="w-full">
+        <div class="w-full max-w-290 mx-auto">
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 <div>
                     {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_1'] ?? null !!}
