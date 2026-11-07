@@ -1,0 +1,57 @@
+@import "photoswipe/dist/photoswipe.css";
+@import "tailwindcss";
+@import "flyonui/variants.css";
+
+
+@import "flyonui/src/vendor/flatpickr.css";
+@import "flyonui/src/vendor/notyf.css";
+@import "flyonui/src/vendor/datatables.css";
+@import "flyonui/src/vendor/editor.css";
+@import "flyonui/src/vendor/fullcalendar.css";
+@import "flyonui/src/vendor/raty.css";
+@import "flyonui/src/vendor/waves.css";
+@import "flyonui/src/vendor/apexcharts.css";
+
+
+@plugin "flyonui" {
+  include: badge, dropdown, timeline;
+}
+@plugin "@iconify/tailwind4" {
+  icons: ["tabler"]; /* Ha csak a tabler ikonokat használod, ez gyorsítja a buildet */
+}
+
+/* @source "../node_modules/flyonui/flyonui.js"; */
+@source "../../../../node_modules/flyonui/dist/index.js";
+@source "../../Themes/FocusDefaultTheme/resources/views/**/*.blade.php";
+
+
+
+
+/* Globális komponensek */
+@layer components {
+  .build-force {
+    @apply btn btn-primary btn-secondary btn-success btn-warning btn-error link link-primary;
+  }
+}
+
+@font-face {
+    font-family: "Material Design Icons";
+    src:
+        url("../fonts/materialdesignicons-webfont.woff2") format("woff2"),
+        url("../fonts/materialdesignicons-webfont.woff") format("woff"),
+        url("../fonts/materialdesignicons-webfont.ttf") format("truetype"),
+        url("../fonts/materialdesignicons-webfont.eot");
+    font-display: swap;
+}
+
+/* Egyéni stílusok (Javított szintaxisban) */
+.sidebar-widget { @apply mb-4 bg-white text-black; }
+.sidebar-widget-head { @apply my-1 mb-2 text-2xl uppercase; }
+.sidebar-widget-content { @apply block w-full text-lg leading-relaxed; }
+
+.table { @apply w-full border-collapse; }
+.table thead { @apply bg-neutral-100; }
+.table thead th { @apply px-4 py-2 text-left border; }
+.table tbody tr { @apply border-b; }
+.table tbody tr:hover { @apply bg-neutral-50; }
+.table tbody td { @apply px-4 py-2 border; }
