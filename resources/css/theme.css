@@ -333,6 +333,10 @@ blockquote::after {
         link
         link-primary
         link-secondary
+        my-1
+        my-2
+        my-3
+        my-4
         dark:text-white;
 }
 
