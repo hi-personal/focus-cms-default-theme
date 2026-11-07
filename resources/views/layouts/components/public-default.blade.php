@@ -116,7 +116,7 @@
 
     <footer
         id="footer"
-        class="w-full max-w-290 mx-auto mt-16 py-8 text-base-content wrap-break-word whitespace-normal hyphens-auto"
+        class="w-full max-w-290 mx-auto mt-16 py-8 px-6 text-base-content wrap-break-word whitespace-normal hyphens-auto"
     >
         <div class="w-full">
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
