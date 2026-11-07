@@ -144,7 +144,7 @@ blockquote::after {
 ========================== */
 
 .sidebar-widget {
-    @apply mb-4 bg-base-100 text-base-content;
+    @apply mb-4 bg-base-100 dark:bg-black text-base-content dark:text-white;
 }
 
 .sidebar-widget-head {
@@ -152,7 +152,7 @@ blockquote::after {
 }
 
 .sidebar-widget-content {
-    @apply block w-full text-lg leading-relaxed;
+    @apply block w-full text-lg leading-relaxed dark:text-white;
 }
 
 
@@ -332,5 +332,14 @@ blockquote::after {
         btn-error
         link
         link-primary
-        link-secondary;
+        link-secondary
+        dark:text-white;
+}
+
+.content-card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 py-10;
+}
+
+.content-card-grid-item {
+    @apply p-4 border border-gray-100 dark:border-gray-700 shadow dark:shadow-gray-600 rounded-lg;
 }

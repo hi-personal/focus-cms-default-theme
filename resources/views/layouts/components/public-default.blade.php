@@ -51,7 +51,7 @@
     @stack('head_scripts')
 </head>
 
-<body class="bg-white text-black w-full min-h-screen flex flex-col">
+<body class="bg-white dark:bg-black text-black w-full min-h-screen flex flex-col">
 
 @if(!$isMinimalView)
 
@@ -69,7 +69,7 @@
     class="w-full lg:bg-gray-200 flex-1 py-0 md:py-1 lg:py-16 wrap-break-word whitespace-normal hyphens-auto"
 >
     <div
-        class="w-full max-w-290 mx-auto bg-base-100 px-6 pt-0 pb-10 shadow-xl lg:px-8 lg:pt-10 lg:pb-20"
+        class="w-full max-w-290 mx-auto bg-base-100 px-6 pt-8 pb-10 shadow-xl lg:px-8 lg:pt-10 lg:pb-20"
     >
         {{ $slot }}
     </div>

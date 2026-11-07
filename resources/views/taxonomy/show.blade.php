@@ -11,12 +11,12 @@
             </div>
         @endif
 
-        <div class="mb-0 py-12 font-semibold bg-slate-100 text-black w-full flex justify-items-center">
+        <div class="mb-0 py-12 font-semibold bg-slate-100 dark:bg-gray-600 text-black dark:text-white w-full flex justify-items-center">
             <h1 class="inline-block mx-auto text-3xl">{{ $term->localizedTitle(cms_locale()) }}</h1>
         </div>
 
         @if(!empty($meta['description'] ?? null))
-            <div class="mb-10 p-6 w-full border-4 border-solid border-gray-100">
+            <div class="mb-10 p-6 w-full border-4 border-solid border-gray-100 dark:border-gray-600">
                 {!! markdownToHtml($meta['description']) !!}
             </div>
         @endif

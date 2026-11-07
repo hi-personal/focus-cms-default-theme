@@ -13,9 +13,9 @@
         :homePageId="$homePageId"
     />
 
-    <h1 class="text-4xl font-bold mb-3">{{ $post->title }}</h1>
+    <h1 class="text-4xl font-bold dark:text-white mb-3">{{ $post->title }}</h1>
 
-    <p class="mb-1 text-gray-600 w-full">
+    <p class="mb-1 text-gray-600 dark:text-gray-200 w-full">
         {{ $post->created_at->format('Y-m-d') }}
     </p>
 

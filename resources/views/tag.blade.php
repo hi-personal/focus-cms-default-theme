@@ -41,7 +41,7 @@
                     <a href="{{ route('post.show.' . ($post->lang ?? app()->getLocale()), ['slug' => $post->name]) }}">{{ $post->title }}</a>
                 </p>
 
-                <p class="text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
+                <p class="text-gray-600 dark:text-gray-200 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
 
                 <p class="my-2">
                     {{ $excerpt }}

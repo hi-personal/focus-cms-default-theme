@@ -14,7 +14,7 @@
         :homePageId="$homePageId"
     />
 
-    <h1 class="text-4xl font-bold mb-3">{{ $post->title }}</h1>
+    <h1 class="text-4xl font-bold mb-3 dark:text-white">{{ $post->title }}</h1>
 
     <div class="post-content">
         {!! $post->content !!}

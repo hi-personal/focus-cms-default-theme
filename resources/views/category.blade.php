@@ -9,7 +9,7 @@
             >
         </div>
     @endif
-    <div class="mb-0 py-12 font-semibold bg-slate-100 text-black w-full flex justify-items-center">
+    <div class="mb-0 py-12 font-semibold bg-slate-100 dark:bg-slate-800 text-black dark:text-white w-full flex justify-items-center">
         <h1 class="inline-block text-center mx-auto text-3xl">{{ $category->title }}</h1>
     </div>
     @if(!empty($description))
@@ -42,8 +42,8 @@
                         href="{{ route('post.show.' . ($post->lang ?? app()->getLocale()), ['slug' => $post->name]) }}"
                     >{{ $post->title }}</a>
                 </p>
-                <p class="text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
-                <p class="my-2">
+                <p class="text-gray-600 dark:text-gray-200 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
+                <p class="my-2 text-gray-600">
                     {{ $excerpt }}
                     @if ($hasMore)
                         <span class="ml-1 text-gray-400">[...]</span>
