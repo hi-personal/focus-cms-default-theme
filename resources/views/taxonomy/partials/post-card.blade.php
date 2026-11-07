@@ -19,7 +19,7 @@
             href="{{ route('post.show.'.cms_locale(), ['slug'=>$post->name]) }}"
         >{{ $post->title }}</a>
     </p>
-    <p class="text-gray-600">{{ $post->created_at->format('Y-m-d') }} </p>
+    <p class="text-gray-600 dark:text-gray-200">{{ $post->created_at->format('Y-m-d') }} </p>
     <p class="my-2">
         {{ $excerpt }}
         @if($hasMore)
