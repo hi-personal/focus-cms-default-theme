@@ -1,0 +1,60 @@
+.build-force {
+    @apply
+        /* daisyUI */
+        btn
+        btn-primary
+        btn-secondary
+        btn-success
+        btn-warning
+        btn-error
+        link
+        link-primary
+        link-secondary
+
+        /* Padding */
+        p-1 p-2 p-3 p-4 p-5 p-6 p-7 p-8 p-9 p-10
+        px-1 px-2 px-3 px-4 px-5 px-6 px-7 px-8 px-9 px-10
+        py-1 py-2 py-3 py-4 py-5 py-6 py-7 py-8 py-9 py-10
+        pt-1 pt-2 pt-3 pt-4 pt-5 pt-6 pt-7 pt-8 pt-9 pt-10
+        pb-1 pb-2 pb-3 pb-4 pb-5 pb-6 pb-7 pb-8 pb-9 pb-10
+        ps-1 ps-2 ps-3 ps-4 ps-5 ps-6 ps-7 ps-8 ps-9 ps-10
+        pe-1 pe-2 pe-3 pe-4 pe-5 pe-6 pe-7 pe-8 pe-9 pe-10
+
+        /* Margin */
+        m-1 m-2 m-3 m-4 m-5 m-6 m-7 m-8 m-9 m-10
+        mx-1 mx-2 mx-3 mx-4 mx-5 mx-6 mx-7 mx-8 mx-9 mx-10
+        my-1 my-2 my-3 my-4 my-5 my-6 my-7 my-8 my-9 my-10
+        mt-1 mt-2 mt-3 mt-4 mt-5 mt-6 mt-7 mt-8 mt-9 mt-10
+        mb-1 mb-2 mb-3 mb-4 mb-5 mb-6 mb-7 mb-8 mb-9 mb-10
+        ms-1 ms-2 ms-3 ms-4 ms-5 ms-6 ms-7 ms-8 ms-9 ms-10
+        me-1 me-2 me-3 me-4 me-5 me-6 me-7 me-8 me-9 me-10
+
+        /* Font size */
+        text-xs
+        text-sm
+        text-base
+        text-lg
+        text-xl
+        text-2xl
+        text-3xl
+        text-4xl
+        text-5xl
+        text-6xl
+        text-7xl
+        text-8xl
+        text-9xl
+
+        /* Font weight */
+        font-thin
+        font-extralight
+        font-light
+        font-normal
+        font-medium
+        font-semibold
+        font-bold
+        font-extrabold
+        font-black
+
+        /* Dark mode */
+        dark:text-white;
+}

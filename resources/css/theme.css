@@ -7,6 +7,8 @@
 
 @import "photoswipe/dist/photoswipe.css" layer(base);
 
+@import "./build-force.css";
+
 @source "../../../resources/views";
 @source "../views";
 
@@ -323,24 +325,6 @@ blockquote::after {
     }
 
 } */
-
-.build-force {
-    @apply
-        btn
-        btn-primary
-        btn-secondary
-        btn-success
-        btn-warning
-        btn-error
-        link
-        link-primary
-        link-secondary
-        my-1
-        my-2
-        my-3
-        my-4
-        dark:text-white;
-}
 
 .content-card-grid {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 py-10;
