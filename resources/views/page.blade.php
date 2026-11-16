@@ -14,7 +14,7 @@
         :homePageId="$homePageId"
     />
 
-    @if (!request()->routeIs('home'))
+    @if (!request()->routeIs('front.home.hu'))
         <h1 class="text-4xl font-bold mb-3 dark:text-white">{{ $post->title }}</h1>
     @endif
 
