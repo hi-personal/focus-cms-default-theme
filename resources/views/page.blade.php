@@ -14,7 +14,9 @@
         :homePageId="$homePageId"
     />
 
-    <h1 class="text-4xl font-bold mb-3 dark:text-white">{{ $post->title }}</h1>
+    @if (!request()->routeIs('home'))
+        <h1 class="text-4xl font-bold mb-3 dark:text-white">{{ $post->title }}</h1>
+    @endif
 
     <div class="post-content">
         {!! $post->content !!}
